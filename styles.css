@@ -1,0 +1,310 @@
+/* General Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #f0f0f0;
+    border-radius: 5px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* Container for Sidebar and Main Content */
+.container {
+    display: flex;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 200px;
+    background: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    border-radius: 5px;
+    background: #444;
+}
+
+.sidebar ul li a:hover {
+    background: #555;
+}
+
+/* Main Content Area */
+main {
+    flex: 1;
+}
+
+/* Module Sections */
+.module {
+    display: none;
+}
+
+.module.active {
+    display: block;
+}
+
+/* Section Styling */
+section {
+    background: #292929;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #f0f0f0;
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #1e1e1e;
+    color: #f0f0f0;
+}
+
+form button {
+    background: #444;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #555;
+}
+
+/* List Styling */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #1e1e1e;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #1e1e1e;
+    color: #f0f0f0;
+}
+
+/* Expense Report Styling */
+#expense-report {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#expense-report h3 {
+    margin-bottom: 10px;
+}
+
+#expense-report p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: #f0f0f0;
+    border-radius: 5px;
+}
+
+/* Product Categorization and Packaging Section Styling */
+#product-categorization {
+    background: #292929;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#product-categorization h2, #product-categorization h3 {
+    color: #f0f0f0;
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+#product-categorization .form-group {
+    margin-bottom: 15px;
+}
+
+#product-categorization form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#product-categorization form input, #product-categorization form select, #product-categorization form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #1e1e1e;
+    color: #f0f0f0;
+}
+
+#product-categorization form button {
+    background: #444;
+    cursor: pointer;
+}
+
+#product-categorization form button:hover {
+    background: #555;
+}
+
+#product-categorization ul {
+    list-style: none;
+    padding: 0;
+}
+
+#product-categorization ul li {
+    background: #1e1e1e;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+/* Sales Management Section Styling */
+#sales-management {
+    background: #292929;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#sales-management h2, #sales-management h3 {
+    color: #f0f0f0;
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+#sales-management .form-group {
+    margin-bottom: 15px;
+}
+
+#sales-management form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#sales-management form input, #sales-management form select, #sales-management form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background: #1e1e1e;
+    color: #f0f0f0;
+}
+
+#sales-management form button {
+    background: #444;
+    cursor: pointer;
+}
+
+#sales-management form button:hover {
+    background: #555;
+}
+
+#sales-management ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sales-management ul li {
+    background: #1e1e1e;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+/* Styled Button */
+.styled-button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 10px 20px; /* Adjusted padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the buttons appear side by side */
+    font-size: 14px; /* Adjusted font size */
+    margin: 4px 2px; /* Some margin */
+    cursor: pointer; /* Pointer/hand icon */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.styled-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Management Module</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Supplier Management Module</h1>
+    </header>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#" data-target="supplier-management">Supplier Management</a></li>
+                <li><a href="#" data-target="product-categorization">Product Categorization</a></li>
+                <li><a href="#" data-target="sales-management">Sales Management</a></li>
+            </ul>
+        </nav>
+        <main>
+            <!-- Supplier Management Section -->
+            <section id="supplier-management" class="module">
+                <!-- Farmers' Information -->
+                <section id="farmers-information">
+                    <h2>Farmers' Information</h2>
+                    <form id="farmer-form">
+                        <h3>Add/Edit Farmer</h3>
+                        <div class="form-group">
+                            <label for="farmer-id">Farmer ID:</label>
+                            <input type="text" id="farmer-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="farmer-name">Name:</label>
+                            <input type="text" id="farmer-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="farmer-contact">Contact:</label>
+                            <input type="text" id="farmer-contact" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="farmer-location">Location:</label>
+                            <input type="text" id="farmer-location" required>
+                        </div>
+                        <button type="submit">Save Farmer</button>
+                        <button type="button" id="delete-farmer">Delete Farmer</button>
+                    </form>
+                    <div class="search-bar">
+                        <label for="search-farmers">Search Farmers:</label>
+                        <input type="text" id="search-farmers" placeholder="Search by name or location">
+                    </div>
+                    <div id="farmer-list-container">
+                        <h3>Farmers List</h3>
+                        <ul id="farmer-list"></ul>
+                    </div>
+                    <button id="export-farmers">Export Farmers</button>
+                </section>
+
+                <!-- Purchase Records -->
+                <section id="purchase-records">
+                    <h2>Purchase Records</h2>
+                    <form id="purchase-form">
+                        <h3>Add Purchase</h3>
+                        <div class="form-group">
+                            <label for="purchase-id">Purchase ID:</label>
+                            <input type="text" id="purchase-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase-farmer-id">Farmer ID:</label>
+                            <input type="text" id="purchase-farmer-id" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase-date">Date:</label>
+                            <input type="date" id="purchase-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase-quantity">Quantity (kg):</label>
+                            <input type="number" id="purchase-quantity" required min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase-price">Price per kg:</label>
+                            <input type="number" id="purchase-price" required min="0">
+                        </div>
+                        <button type="submit">Add Purchase</button>
+                    </form>
+                    <div id="purchase-list-container">
+                        <h3>Purchase Records</h3>
+                        <ul id="purchase-list"></ul>
+                    </div>
+                    <div class="sort-options">
+                        <label for="sort-purchases">Sort By:</label>
+                        <select id="sort-purchases">
+                            <option value="date">Date</option>
+                            <option value="farmer">Farmer</option>
+                            <option value="amount">Amount</option>
+                        </select>
+                    </div>
+                </section>
+
+                <!-- Expense Calculation -->
+                <section id="expense-calculation">
+                    <h2>Expense Calculation</h2>
+                    <div class="form-group">
+                        <label for="expense-period">Select Period:</label>
+                        <select id="expense-period">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+                    <button id="calculate-expenses">Calculate Expenses</button>
+                    <div id="expense-report">
+                        <h3>Expense Report</h3>
+                        <p id="total-expenses">Total Expenses: $0</p>
+                    </div>
+                    <div id="expense-summary">
+                        <h3>Expense Summary</h3>
+                        <p id="total-weight">Total Weight: 0 kg</p>
+                        <p id="average-cost">Average Cost per kg: $0</p>
+                        <p id="total-spent">Total Spent: $0</p>
+                    </div>
+                </section>
+
+                <!-- Farmer Earnings -->
+                <section id="farmer-earnings">
+                    <h3>Farmer Earnings</h3>
+                    <ul id="farmer-earnings-list"></ul>
+                </section>
+            </section>
+
+            <!-- Product Categorization and Packaging Section -->
+            <section id="product-categorization" class="module">
+                <h2>Product Categorization and Packaging</h2>
+                <form id="categorization-form">
+                    <h3>Assign Products to Categories</h3>
+                    <div class="form-group">
+                        <label for="product-id">Product ID:</label>
+                        <input type="text" id="product-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-weight">Weight (kg):</label>
+                        <input type="number" id="product-weight" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="product-category">Category:</label>
+                        <select id="product-category" required>
+                            <option value="small">Small (100g)</option>
+                            <option value="medium">Medium (250g)</option>
+                            <option value="large">Large (500g)</option>
+                            <option value="extra-large">Extra Large (1kg)</option>
+                            <option value="family-pack">Family Pack (2kg)</option>
+                            <option value="bulk-pack">Bulk Pack (5kg)</option>
+                        </select>
+                    </div>
+                    <button type="submit">Assign Category</button>
+                </form>
+                <div id="category-list-container">
+                    <h3>Product Categories</h3>
+                    <ul id="category-list"></ul>
+                </div>
+                <div class="form-group">
+                    <label for="category-price">Set Category Prices:</label>
+                    <input type="number" id="category-price" required min="0">
+                    <button id="set-price">Set Price</button>
+                </div>
+                <div id="pricing-structure">
+                    <h3>Pricing Structure</h3>
+                    <ul id="pricing-list"></ul>
+                </div>
+                <div id="inventory-tracking">
+                    <h3>Inventory Tracking</h3>
+                    <ul id="inventory-list"></ul>
+                </div>
+                <div id="total-purchased">Total Purchased: 0kg</div>
+                <div id="total-packaged">Total Packaged: 0kg</div>
+                <div class="form-group">
+                    <label for="stock-threshold">Set Stock Threshold (kg):</label>
+                    <input type="number" id="stock-threshold" min="0" step="0.1" value="3">
+                    <button id="set-stock-threshold">Set Threshold</button>
+                </div>
+            </section>
+
+            <!-- Sales Management Section -->
+            <section id="sales-management" class="module">
+                <h2>Sales Management</h2>
+                <form id="order-form">
+                    <h3>Log New Order</h3>
+                    <div class="form-group">
+                        <label for="order-id">Order ID:</label>
+                        <input type="text" id="order-id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-name">Customer Name:</label>
+                        <input type="text" id="customer-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-contact">Customer Contact:</label>
+                        <input type="text" id="customer-contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-address">Customer Address:</label>
+                        <input type="text" id="customer-address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-date">Order Date:</label> <!-- New date input field -->
+                        <input type="date" id="order-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-product-category">Product Category:</label>
+                        <select id="order-product-category" required>
+                            <option value="small">Small (100g)</option>
+                            <option value="medium">Medium (250g)</option>
+                            <option value="large">Large (500g)</option>
+                            <option value="extra-large">Extra Large (1kg)</option>
+                            <option value="family-pack">Family Pack (2kg)</option>
+                            <option value="bulk-pack">Bulk Pack (5kg)</option>
+                            <option value="premium">Premium (custom weight)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity-ordered">Quantity Ordered:</label>
+                        <input type="number" id="quantity-ordered" required min="0">
+                    </div>
+                    <button type="submit">Log Order</button>
+                </form>
+                <div class="search-bar">
+                    <label for="search-orders">Search Orders:</label>
+                    <input type="text" id="search-orders" placeholder="Search by customer or category">
+                </div>
+                <div class="sort-options">
+                    <label for="order-status">Filter by Status:</label>
+                    <select id="order-status">
+                        <option value="all">All</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Processed">Processed</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                    </select>
+                </div>
+                <div id="order-list-container">
+                    <h3>Order List</h3>
+                    <ul id="order-list"></ul>
+                </div>
+                <div id="revenue-report">
+                    <h3>Revenue Report</h3>
+                    <p id="total-revenue">Total Revenue: $0</p>
+                    <ul id="revenue-per-category"></ul>
+                </div>
+                <div id="sales-reports">
+                    <h3>Sales Reports</h3>
+                    <div>
+                        <label for="report-type">Report Type:</label>
+                        <select id="report-type">
+                            <option value="category">By Category</option>
+                            <option value="customer">By Customer</option>
+                        </select>
+                        <button id="generate-report" class="styled-button">Generate Report</button>
+                    </div>
+                    <canvas id="sales-chart"></canvas>
+                    <button id="export-report" class="styled-button">Export Report</button>
+                </div>
+                <section id="sales-statistics">
+                    <h3>Sales Statistics</h3>
+                    <p id="total-sold-weight">Total Sold Weight: 0 kg</p>
+                    <p id="average-sale-price">Average Sale Price per kg: $0</p>
+                    <p id="total-expense">Total Expense: $0</p> <!-- Total Expense eklendi -->
+                    <p id="net-profit">Net Profit: $0</p> <!-- Net Profit eklendi -->
+                    <p id="net-profit-after-tax">Net Profit After Tax: $0</p> <!-- Net Profit After Tax eklendi -->
+                </section>
+                <div class="form-group">
+                    <label for="tax-rate">Set Tax Rate (%):</label>
+                    <input type="number" id="tax-rate" min="0" step="0.1" value="10">
+                    <button id="set-tax-rate" class="styled-button">Set Tax Rate</button>
+                </div>
+                <button id="generate-comprehensive-report" class="styled-button">Generate Comprehensive Report</button>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 Supplier Management Module</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="productCategorization.js"></script>
+    <script src="salesManagement.js"></script>
+</body>
+</html>
